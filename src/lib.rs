@@ -160,8 +160,8 @@ mod tally;
 pub use tally::*;
 
 // All our data structures should be available to the end-user
-mod model;
-pub use model::*;
+mod contest;
+pub use contest::*;
 
 // The `gen` module exposes generation functions to create random
 mod gen;

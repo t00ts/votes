@@ -1,4 +1,4 @@
-// model.rs
+// contest.rs
 
 use std::{fs::File, path::Path};
 use std::io::{self, Read, Write};

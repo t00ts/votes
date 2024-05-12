@@ -5,7 +5,7 @@ use std::collections::HashSet;
 use rand::Rng;
 
 use crate::tally::FlatVote; 
-use crate::model::{Contest, ContestBuilder, ContestChoice, DecodedContestVote, DecodedVoteChoice};
+use crate::contest::{Contest, ContestBuilder, ContestChoice, DecodedContestVote, DecodedVoteChoice};
 
 static NAMES: [&str; 100] = ["Alexander", "Olivia", "William", "Emma", "Ethan", "Sophia", "Benjamin", "Isabella", "James", "Mia", "Michael", "Charlotte", "Daniel", "Amelia", "Matthew", "Harper", "Jackson", "Evelyn", "David", "Abigail", "Joseph", "Emily", "Samuel", "Elizabeth", "Henry", "Avery", "Christopher", "Sofia", "Andrew", "Ella", "Lucas", "Scarlett", "Gabriel", "Grace", "Joshua", "Lily", "John", "Chloe", "Isaac", "Zoey", "Nathan", "Madison", "Oliver", "Aria", "Dylan", "Riley", "Elijah", "Layla", "Caleb", "Penelope", "Anthony", "Victoria", "Mason", "Natalie", "Logan", "Lucy", "Aaron", "Nora", "Jack", "Lillian", "Jonathan", "Hannah", "Ryan", "Addison", "Nicholas", "Eleanor", "Adam", "Aubrey", "Zachary", "Stella", "Levi", "Savannah", "Aiden", "Brooklyn", "Julian", "Claire", "Christian", "Violet", "Brayden", "Skylar", "Samuel", "Paisley", "Xavier", "Audrey", "Cameron", "Leah", "Connor", "Sadie", "Jeremiah", "Ariana", "Hunter", "Allison", "Thomas", "Sarah", "Charles", "Caroline", "Eli", "Naomi", "Jordan", "Katherine"];
 
@@ -60,9 +60,6 @@ pub fn gen_random_choices(count: usize) -> Vec<ContestChoice> {
 /// 
 /// - Each voter will submit at least one vote (choice)
 /// - Each voter will submit a maximum of all the available choices for the contest
-/// 
-/// 
-/// 
 pub fn gen_random_votes(count: usize, contest: &Contest) -> Vec<FlatVote> {
 
     (0..count).map(|_| {
