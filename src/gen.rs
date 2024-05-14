@@ -39,13 +39,14 @@ pub fn gen_random_contest(num_winners: i64, choices: Vec<ContestChoice>) -> Cont
 /// guaranteed to be unique.
 pub fn gen_random_choices(count: usize) -> Vec<ContestChoice> {
 
-    let ids: HashSet<i64> = HashSet::new();
+    let mut ids: HashSet<i64> = HashSet::new();
     (0..count).map(|_| {
         // Generate a unique, random ID
         let mut id = rand::thread_rng().gen_range(0..1_000);
         while ids.contains(&id) {
             id = rand::thread_rng().gen_range(0..1_000);
         }
+        ids.insert(id);
         // Use a random name (could be repeated)
         let name = NAMES[rand::thread_rng().gen_range(1..100)];
         // Create a `ContestChoice`
